@@ -40,13 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-<<<<<<< Updated upstream
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-=======
->>>>>>> Stashed changes
     ],
 
     /*
@@ -72,14 +69,11 @@ return [
             'model' => App\Models\User::class,
         ],
 
-<<<<<<< Updated upstream
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
 
-=======
->>>>>>> Stashed changes
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

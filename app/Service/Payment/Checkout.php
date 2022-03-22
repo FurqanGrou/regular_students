@@ -23,20 +23,6 @@ use Illuminate\Support\Facades\Session;
 
 class Checkout
 {
-<<<<<<< Updated upstream
-//    private $sandbox = 'https://api.sandbox.checkout.com';
-//    private $secret = 'sk_test_7c21900d-0f6b-4395-af84-9508b39fd5c7';
-//    private $public = 'pk_test_7f411d80-c340-411c-a6e6-9578bf634c19';
-
-    private $sandbox = 'https://api.checkout.com/payments';
-    private $secret = 'sk_8cbe6cf1-3871-4c1c-ae84-cd49b7e2af90';
-    private $public = 'pk_562d50cb-b790-4b10-893b-641edb7df296';
-=======
-<<<<<<< Updated upstream
-    private $sandbox = 'https://api.sandbox.checkout.com';
-    private $secret = 'sk_test_7c21900d-0f6b-4395-af84-9508b39fd5c7';
-    private $public = 'pk_test_7f411d80-c340-411c-a6e6-9578bf634c19';
-=======
     private $payment_link;
     private $secret;
     private $public;
@@ -48,8 +34,6 @@ class Checkout
         $this->secret = $config['checkout_sk'];
         $this->public = $config['checkout_pk'];
     }
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
     /**
      * not required
@@ -58,26 +42,14 @@ class Checkout
      */
     public function checkout()
     {
-<<<<<<< Updated upstream
-        $client = new Client(['base_uri' => $this->sandbox]);
-=======
         $client = new Client(['base_uri' => $this->payment_link]);
->>>>>>> Stashed changes
 
         $response = $client->request('POST', '/payment-links',
             [
                 'json' => [
                     "amount" => 29500,
                 ], 'headers' => [
-<<<<<<< Updated upstream
-                'Authorization' => "pk_562d50cb-b790-4b10-893b-641edb7df296"
-=======
-<<<<<<< Updated upstream
-                'Authorization' => "pk_test_7f411d80-c340-411c-a6e6-9578bf634c19"
-=======
                 'Authorization' => $this->public
->>>>>>> Stashed changes
->>>>>>> Stashed changes
             ]
             ]);
         $data = \GuzzleHttp\json_decode($response->getBody()->getContents());
@@ -94,16 +66,12 @@ class Checkout
         $reference_number = Subscribe::whereYear('created_at', '=', $now->year)->max('reference_number');
         $reference_number = $reference_number ? intval($reference_number) + 1 : $now->year . '0001';
 
-<<<<<<< Updated upstream
-        $checkout = new CheckoutApi($this->secret);
-=======
         if (config('checkoutpayment.mode') == 'sandbox'){
             $checkout = new CheckoutApi($this->secret);
         }else{
             $checkout = new CheckoutApi($this->secret, false);
         }
 
->>>>>>> Stashed changes
         $method = new TokenSource($token);
 
         $payment = new Payment($method, 'USD');
@@ -118,39 +86,24 @@ class Checkout
 //            '0044', '02073233888'
 //        ]);
         $payment->billing_descriptor = new BillingDescriptor('Dynamic desc charge', 'City charge');
-<<<<<<< Updated upstream
-//        $payment->amount = 29500;
         $payment->amount = $amount;
         $payment->capture = true;
         $payment->reference = $reference_number;
         $payment->success_url = url('/thank-you');
         $payment->failure_url = url('/thank-you');
-=======
-        $payment->amount = $amount;
-        $payment->capture = true;
-        $payment->reference = $reference_number;
-        $payment->success_url = 'http://127.0.0.1:8000/';
-        $payment->failure_url = 'http://127.0.0.1:8000/';
->>>>>>> Stashed changes
         $threeDs = new ThreeDs(true);
         $threeDs->attempt_n3d = true;
         $payment->threeDs = $threeDs;
 
         $payment->risk = new Risk(false);
 //        $payment->setIdempotencyKey('123');
-<<<<<<< Updated upstream
-=======
         $details = $checkout->payments()->request($payment);
         dd($details);
->>>>>>> Stashed changes
 
         try {
             $details = $checkout->payments()->request($payment);
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
             Session::put('payment_id', $details->id);
             Session::put('payment_status', $details->status);
             Session::put('reference_number', $reference_number);

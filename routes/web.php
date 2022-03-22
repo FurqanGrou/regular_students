@@ -23,7 +23,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
     Route::post('/submit/re-subscribe', [RegisterController::class, 'resubscribe'])->name('submit.re-subscribe');
     Route::get('/semester-registration/get-student-info', [SemesterRegistrationController::class, 'getStudentInfo'])->name('semester.registration.getStudentInfo');
     Route::get('/importCountries', [ImportController::class, 'importCountries']);
-<<<<<<< Updated upstream
 
     // apply coupon
     Route::get('/apply-coupon', [CouponController::class, 'applyCoupon'])->name('apply.coupon');
@@ -35,15 +34,4 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'l
 Route::get('/clear-cache', function() {
     Artisan::call('optimize:clear');
     echo "Cleared";
-=======
-    Route::get('/importStudents', [ImportController::class, 'importStudents']);
-
-    // apply coupon
-    Route::get('/apply-coupon', [CouponController::class, 'applyCoupon'])->name('apply.coupon');
-});
-
-
-Route::get('/test', function (\App\Services\GoogleSheet $googleSheet){
-
->>>>>>> Stashed changes
 });

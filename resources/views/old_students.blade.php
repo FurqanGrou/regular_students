@@ -13,10 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     <style>
 
         * {
@@ -208,11 +205,7 @@
 
         #progressbar #confirm:before {
             font-family: FontAwesome;
-<<<<<<< Updated upstream
             content: "\f09d"
-=======
-            content: "\f00c"
->>>>>>> Stashed changes
         }
 
         #progressbar li:before {
@@ -279,7 +272,6 @@
             font-family: Cairo;
         }
 
-<<<<<<< Updated upstream
         .input-time {
             width: auto !important;
         }
@@ -288,8 +280,6 @@
             margin-right: 20px !important;
         }
 
-=======
->>>>>>> Stashed changes
     </style>
 
     <style>*,*::after,*::before{box-sizing:border-box}html{padding:1rem;background-color:#FFF;font-family: 'Cairo', sans-serif;, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif}#payment-form{width:31.5rem;margin:0 auto}iframe{width:100%}.one-liner{display:flex;flex-direction:column}#pay-button{border:none;border-radius:3px;color:#FFF;font-weight:500;height:40px;width:100%;background-color:#13395E;box-shadow:0 1px 3px 0 rgba(19,57,94,0.4)}#pay-button:active{background-color:#0B2A49;box-shadow:0 1px 3px 0 rgba(19,57,94,0.4)}#pay-button:hover{background-color:#15406B;box-shadow:0 2px 5px 0 rgba(19,57,94,0.4)}#pay-button:disabled{background-color:#697887;box-shadow:none}#pay-button:not(:disabled){cursor:pointer}.card-frame{border:solid 1px #13395E;border-radius:3px;width:100%;margin-bottom:8px;height:40px;box-shadow:0 1px 3px 0 rgba(19,57,94,0.2)}.card-frame.frame--rendered{opacity:1}.card-frame.frame--rendered.frame--focus{border:solid 1px #13395E;box-shadow:0 2px 5px 0 rgba(19,57,94,0.15)}.card-frame.frame--rendered.frame--invalid{border:solid 1px #D96830;box-shadow:0 2px 5px 0 rgba(217,104,48,0.15)}.success-payment-message{color:#13395E;line-height:1.4}.token{color:#b35e14;font-size:0.9rem;font-family: 'Cairo', sans-serif;}@media screen and (min-width: 31rem){.one-liner{flex-direction:row}.card-frame{width:318px;margin-bottom:0}#pay-button{width:175px;margin-left:8px}}</style>
@@ -398,24 +388,7 @@
     <div class="row justify-content-center">
         <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-<<<<<<< Updated upstream
                 <h2 id="heading">{{ __('Second semester 2022') }}</h2>
-=======
-                <h2 id="heading">{{ __('resubscribe.Second semester 2022') }}</h2>
-
-                @if(\Illuminate\Support\Facades\Session::has('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ \Illuminate\Support\Facades\Session::get('success') }}
-                    </div>
-                @endif
-
-                @if(\Illuminate\Support\Facades\Session::has('error'))
-
-                    <div class="alert alert-danger" role="alert">
-                        {{ \Illuminate\Support\Facades\Session::get('error') }}
-                    </div>
-                @endif
->>>>>>> Stashed changes
 
                 <form id="msform" action="{{ route('submit.re-subscribe') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -438,139 +411,53 @@
                                     <h2 class="fs-title text-center">{{ __('resubscribe.General information') }}</h2>
                                 </div>
                             </div>
-<<<<<<< Updated upstream
-                             <p class="{{ app()->getLocale() == 'ar' ? 'text-right' : '' }}">
+                            <p class="{{ app()->getLocale() == 'ar' ? 'text-right' : '' }}">
                                     <span class="d-block">
                                         {{ __('announce the beginning of registration for the second semester') }}
                                     </span>
 
-                                     <br>
+                                <br>
 
-                                     <span class="d-block" style="color: #bb271a; font-weight: bold;">{{ __('Note') }}</span>
-                                    <span class="d-block" style="color: #bb271a; font-weight: bold;">
+                                <span class="d-block" style="color: #bb271a; font-weight: bold;">{{ __('Note') }}</span>
+                                <span class="d-block" style="color: #bb271a; font-weight: bold;">
                                             {{ __('To register in the one-to-one classes, you can register in the waiting list') }}
                                         <a href="{{ __('https://form.jotform.com/211934828471461') }}">{{ __('click here') }}</a>
                                     </span>
-=======
 
-                            @if(app()->getLocale() == 'ar')
-                                <p class="text-right">
-                                    أعزاءنا أولياء الأمور.. نفيدكم بأنه تم فتح مجال التسجيل للفصل
-                                    الثاني 2022 للطلاب المنتظمين بنظام التعليم عن بعد وستكون بداية الفصل الدراسي الثاني للطلاب والطالبات من تاريخ 02-01-2022 الموافق 29-05-1443هـ إلى تاريخ 28-04-2022 الموافق 27-09-1443 هـ.
-                                    <br>
-                                    <br>
-                                    <span class="d-block" style="color: #ea3223; font-weight: bold;">ملاحظة:</span>
-                                    <span style="color: #ea3223; font-weight: bold;">
-                                                للتسجيل في نظام التعليم الفردي (عن بعد) يمكنكم التسجيل في قائمة الانتظار
-                                        </span>
-                                    <a href="https://form.jotform.com/211934828471461">بالضغط هنا</a>.
-                                    <br>
-                                    <br>
-                                    في حال وجود استفسارات حول آليات سداد الرسوم وخيارات الدفع المتاحة نفيدكم أنه قد تم تخصيص أحد ممثلي قسم الحسابات للرد على استفساراتكم حيال الأمر وتقديم الدعم الكامل عبر المكتب الافتراضي لحل أي عوائق إن شاء الله..
+                                <br>
 
-                                    <br>
-                                    <br>
-                                    <span class="d-block text-center" style="color: #ea3223; font-weight: bold;">رابط المكتب الافتراضي:</span>
-                                    <a class="text-center w-100 d-block" href="https://furqangroup.zoom.us/j/99947595293">https://furqangroup.zoom.us/j/99947595293</a>
-                                    <br>
-
-                                    <span class="d-block text-center" style="font-weight: bold !important; color: black; color: #ea3223;">الأسئلة الشائعة:</span>
-
-                                    <span class="d-block text-center" style="color: #48742b;">أوقات الاستقبال من (الأحد إلى الخميس):</span>
-
-                                <ul class="text-right">
-                                    <li>9:00 صباحا - 10:00 مساء بتوقيت مكة المكرمة (GMT+3)</li>
-                                    <li>8:00 صباحا - 09:00 مساء بتوقيت المغرب العربي وفرنسا  (GMT+1)</li>
-                                    <li>2:00 صباحا - 03:00 مساء بتوقيت نيويورك ( GMT-5)</li>
-                                </ul>
-
-                                <span class="text-center d-block">مع تمنياتنا للجميع بالتوفيق والنجاح.</span>
-
-                                </p>
-                            @else
-                                <p>
-                                    <span class="d-block">Dear Parents,</span>
-                                    <span class="d-block">
-                                            We’d like to announce the beginning of registration for the second semester 2022, which is available for distance-learning. The second semester is to begin from 02.01.2022 until 28.04.2022.
-                                        </span>
-
-                                    <span class="d-block" style="color: #bb271a; font-weight: bold;">Note:</span>
-                                    <span class="d-block" style="color: #bb271a; font-weight: bold;">
-                                            To register in the one-to-one classes, you can register in the waiting list. <a href="https://form.jotform.com/211934828471461">click here</a>
-                                        </span>
->>>>>>> Stashed changes
-
-                                    <br>
-
-                                    <span class="d-block">
-<<<<<<< Updated upstream
+                                <span class="d-block">
                                         {{ __('questions regarding the payment options and methods') }}
                                     </span>
 
-                                     <br>
-                                     <span class="w-100 text-center d-block" style="color: #bb271a; font-weight: bold;">
+                                <br>
+                                <span class="w-100 text-center d-block" style="color: #bb271a; font-weight: bold;">
                                             {{ __('virtual office link') }}
                                     </span>
 
-                                    <a class="w-100 text-center d-block" href="{{ __('https://furqangroup.zoom.us/j/99947595293') }}">
-                                        {{ __('https://furqangroup.zoom.us/j/99947595293') }}
-=======
-                                            If you had any questions regarding the payment options and methods, we would like to inform you that you can visit our virtual office where we have assigned one of our representatives from the financial department to answer your questions and help you with that.
-                                        </span>
+                                <a class="w-100 text-center d-block" href="{{ __('https://furqangroup.zoom.us/j/99947595293') }}">
+                                    {{ __('https://furqangroup.zoom.us/j/99947595293') }}
+                                </a>
+                                <br>
 
-                                    <span class="w-100 text-center d-block" style="color: #bb271a; font-weight: bold;">
-                                            virtual office link:
-                                        </span>
-
-                                    <a class="w-100 text-center d-block" href="https://furqangroup.zoom.us/j/99947595293">
-                                        https://furqangroup.zoom.us/j/99947595293
->>>>>>> Stashed changes
-                                    </a>
-                                    <br>
-
-                                    <span class="w-100 text-center d-block" style="color: #bb271a; font-weight: bold;">
-<<<<<<< Updated upstream
+                                <span class="w-100 text-center d-block" style="color: #bb271a; font-weight: bold;">
                                             {{ __('Virtual office times') }}
                                         </span>
 
-                                    <span class="w-100 text-center d-block" style="color: #48742b; font-weight: bold;">
+                                <span class="w-100 text-center d-block" style="color: #48742b; font-weight: bold;">
                                             {{ __('From Sunday till Thursday') }}
                                     </span>
-                                <ul class="{{ app()->getLocale() == 'ar' ? 'text-right' : '' }}">
-                                    <li>{{ __('09:00AM - 10:00PM Mecca time (GMT + 3)') }}</li>
-                                    <li>{{ __('08:00AM - 09:00PM Morocco and France time (GMT+1)') }}</li>
-                                    <li>{{ __('02:00AM - 03:00PM New York time (GMT-5)') }}</li>
-                                </ul>
+                            <ul class="{{ app()->getLocale() == 'ar' ? 'text-right' : '' }}">
+                                <li>{{ __('09:00AM - 10:00PM Mecca time (GMT + 3)') }}</li>
+                                <li>{{ __('08:00AM - 09:00PM Morocco and France time (GMT+1)') }}</li>
+                                <li>{{ __('02:00AM - 03:00PM New York time (GMT-5)') }}</li>
+                            </ul>
 
-                                <span class="w-100 text-center d-block" style="color: black; font-weight: bold;">
-                                            {{ __('We wish you all good health and success by Allah will.') }}
+                            <span class="w-100 text-center d-block" style="color: black; font-weight: bold;">
+                                            {{ __('We wish you all good health and success by Allah will') }}
                                 </span>
 
                             </p>
-=======
-                                            Virtual office times:
-                                        </span>
-
-                                    <span class="w-100 text-center d-block" style="color: #48742b; font-weight: bold;">
-                                            From Sunday till Thursday
-                                        </span>
-                                    <span class="w-100 text-center d-block" style="color: #bb271a; font-weight: bold;">
-                                            at
-                                        </span>
-
-                                <ul>
-                                    <li>09:00AM - 10:00PM Mecca time (GMT + 3)</li>
-                                    <li>08:00AM - 09:00PM Morocco and France time (GMT+1)</li>
-                                    <li>02:00AM - 03:00PM New York time (GMT-5)</li>
-                                </ul>
-
-                                <span class="w-100 text-center d-block" style="color: black; font-weight: bold;">
-                                            We wish you all good health and success by Allah will.
-                                        </span>
-
-                                </p>
-                            @endif
->>>>>>> Stashed changes
 
                         </div>
 
@@ -629,7 +516,6 @@
                                 <label for="std-email-conf">{{ __('resubscribe.Confirm Email') }}</label>
                                 <input type="email" class="form-control" id="std-email-conf" placeholder="{{ __('resubscribe.Confirm Email') }}" required>
                             </div>
-<<<<<<< Updated upstream
                             <div class="form-check d-flex align-items-center">
                                 <label class="form-check-label" for="flexCheckIndeterminate">
                                     {{ __('Do you want to change the current period') }}
@@ -671,8 +557,6 @@
                                     </label>
                                 </div>
                             </div>
-=======
->>>>>>> Stashed changes
 
                         </div>
                         <input type="button" name="next" class="next action-button" value="{{ __('resubscribe.Next') }}" />
@@ -775,10 +659,7 @@
                                 </div>
 
                                 <div class="form-group text-right">
-<<<<<<< Updated upstream
-                                    <div class="alert alert-danger d-none" id="transfer-date-alert" role="alert">{{ __('The student must be 5 years old or over to register.') }}</div>
-=======
->>>>>>> Stashed changes
+                                    <div class="alert alert-danger d-none" id="transfer-date-alert" role="alert">{{ __('Be sure to choose a valid transfer date') }}</div>
                                     <label for="transfer_date">{{ __('resubscribe.Transfer date') }}</label>
                                     <input type="date" class="form-control" name="transfer_date" id="transfer_date">
                                 </div>
@@ -859,11 +740,7 @@
 
 <!-- add frames script -->
 <script src="https://cdn.checkout.com/js/framesv2.min.js"></script>
-<<<<<<< Updated upstream
-<script src="{{ asset('app.js') }}?v=6.22"></script>
-=======
-<script src="{{ asset('app.js') }}?v=45.2"></script>
->>>>>>> Stashed changes
+<script src="{{ asset('app.js') }}?v=61.32"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -874,11 +751,6 @@
 <script>
     $(document).ready(function(){
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
         $(document).on('click', 'form#msform #change-current-period', function (e) {
             $('#favorite_times').toggleClass('d-none');
 
@@ -902,15 +774,9 @@
                 $('form#msform input#transfer_date').css('border-color', 'red');
                 $('form#msform input#transfer_date').val('');
             }
-<<<<<<< Updated upstream
 
         });
 
-=======
-        });
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
         var current_fs, next_fs, previous_fs; //fieldsets
         var opacity;
         var current = 1;
@@ -1041,11 +907,7 @@
                 $("#submit-main-form").removeClass('d-none');
             }else{
                 e.preventDefault();
-<<<<<<< Updated upstream
                 alert('{{ __('You must agree that the previous information is correct') }}');
-=======
-                alert('يجب عليك الموافقة على صحة البيانات السابقة')
->>>>>>> Stashed changes
             }
         });
 
@@ -1060,11 +922,7 @@
                 $("#submit-main-form").addClass('d-none');
             }else{
                 e.preventDefault();
-<<<<<<< Updated upstream
                 alert('{{ __('You must agree that the previous information is correct') }}');
-=======
-                alert('يجب عليك الموافقة على صحة البيانات السابقة')
->>>>>>> Stashed changes
             }
 
         });

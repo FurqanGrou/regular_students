@@ -79,11 +79,7 @@ class RegisterController extends Controller
 
         if ($request->payment_method == 'hsbc'){
             $request->validate([
-<<<<<<< Updated upstream
                 'money_transfer_image_path' => 'required|image',
-=======
-                'money_transfer_image_path' => 'required|mimes:jpeg,jpg,bmp,gif,svg,webp,png,pdf,doc,docx,xlsx,xls',
->>>>>>> Stashed changes
                 'bank_name'     => 'required|string',
                 'account_owner' => 'required|string',
                 'transfer_date' => 'required|date',
@@ -124,10 +120,7 @@ class RegisterController extends Controller
         if ($request->payment_method == 'checkout_gateway') {
 
             $customer = ['email' => $request->email, 'name' => $request->student_name];
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
             $result  = $this->payment($request->token_pay, $customer, $amount);
 
             $subscribe = Subscribe::query()->create([
@@ -139,11 +132,7 @@ class RegisterController extends Controller
                 'reference_number' => Session::get('reference_number'),
                 'payment_status' => Session::get('payment_status'),
                 'form_type' => 'regular',
-<<<<<<< Updated upstream
-                'response_code' => $result->response_code,
-=======
                 'response_code' => $result->response_code ?? '-',
->>>>>>> Stashed changes
                 'coupon_id' => $coupon->id ?? null,
                 'discount_value' => $discount ?? 0.00,
                 'coupon_code' => $coupon->code ?? null,
@@ -162,11 +151,7 @@ class RegisterController extends Controller
                 }else{
                     session()->flash('error', __('resubscribe.Payment failed!'));
                 }
-<<<<<<< Updated upstream
                 return redirect()->route('semester.thankYouPage');
-=======
-                return redirect()->route('semester.registration.index');
->>>>>>> Stashed changes
             }
 
         }else{
@@ -185,11 +170,7 @@ class RegisterController extends Controller
         }
 
         session()->flash('success', __('resubscribe.The registration process has been completed successfully'));
-<<<<<<< Updated upstream
         return redirect()->route('semester.thankYouPage');
-=======
-        return redirect()->route('semester.registration.index');
->>>>>>> Stashed changes
     }
 
     /**

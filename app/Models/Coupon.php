@@ -63,10 +63,6 @@ class Coupon extends Model
 
     public function use($student_id)
     {
-<<<<<<< Updated upstream
-=======
-        // يجب افراغ السيشن من رقم الطالب
->>>>>>> Stashed changes
         $this->times_used += 1;
         $this->save();
 
