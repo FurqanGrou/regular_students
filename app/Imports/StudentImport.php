@@ -17,11 +17,15 @@ class StudentImport implements ToModel, WithHeadingRow, WithChunkReading, WithBa
     */
     public function model(array $row)
     {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         $serial_number = trim($row['alrkm_altslsly']);
         $name    = trim($row['alasm']);
         $section = trim($row['alksm']);
         $status  = trim($row['odaa_altalb']);
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
         if(!is_null($row['alrkm_altslsly']) && !is_null($row['alasm']) && !is_null($row['alksm']) && !is_null($row['odaa_altalb'])){
@@ -35,6 +39,9 @@ class StudentImport implements ToModel, WithHeadingRow, WithChunkReading, WithBa
 =======
         $path    = trim($row['almsar']);
         $client_zoho_id = substr(trim($row['rkm_alaamyl_zoho']), 1);
+=======
+        $path    = trim($row['almsar']);
+>>>>>>> Stashed changes
 
         if(!is_null($row['alrkm_altslsly']) && !is_null($row['alasm']) && !is_null($row['alksm']) && !is_null($row['odaa_altalb'])){
 
@@ -49,18 +56,29 @@ class StudentImport implements ToModel, WithHeadingRow, WithChunkReading, WithBa
                 ->where('section', '=', $custom_section)
                 ->first();
 
+<<<<<<< Updated upstream
             if ($student){
                 $student->update([
                     'client_zoho_id'    => $client_zoho_id,
                 ]);
             }else{
+=======
+            if (!$student){
+>>>>>>> Stashed changes
                 Student::create([
                     'serial_number' => $serial_number,
                     'name'    => $name,
                     'section' => $section == 'بنين' ? '1' : '2',
+<<<<<<< Updated upstream
                     'status'  => $status  == 'منتظم' ? '1' : '0',
                     'path'    => $path,
                     'client_zoho_id'    => $client_zoho_id,
+                ]);
+            }
+>>>>>>> Stashed changes
+=======
+                    'status'  => $status == 'منتظم' ? '1' : '0',
+                    'path'    => $path,
                 ]);
             }
 >>>>>>> Stashed changes

@@ -3,7 +3,11 @@ var payButton = document.getElementById("pay-button");
 var form = document.getElementById("payment-form");
 var errorStack = [];
 
+<<<<<<< Updated upstream
 Frames.init("pk_562d50cb-b790-4b10-893b-641edb7df296");
+=======
+Frames.init("pk_test_7f411d80-c340-411c-a6e6-9578bf634c19");
+>>>>>>> Stashed changes
 
 Frames.addEventHandler(
     Frames.Events.CARD_VALIDATION_CHANGED,

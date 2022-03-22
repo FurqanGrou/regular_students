@@ -17,7 +17,11 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+<<<<<<< Updated upstream
     public const HOME = '/dashboard/home';
+=======
+    public const HOME = '/home';
+>>>>>>> Stashed changes
 
     /**
      * The controller namespace for the application.
@@ -46,11 +50,14 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+<<<<<<< Updated upstream
 
             Route::prefix('dashboard')
                 ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/dashboard.php'));
+=======
+>>>>>>> Stashed changes
         });
     }
 

@@ -16,8 +16,13 @@ class ImportController extends Controller
 
     public function importStudents()
     {
+<<<<<<< Updated upstream
         Excel::import(new StudentImport(), 'ma_1.xlsx');
 //        Excel::import(new StudentImport(), 'fe_1.xlsx');
+=======
+//        Excel::import(new StudentImport(), 'male.xlsx');
+        Excel::import(new StudentImport(), 'female.xlsx');
+>>>>>>> Stashed changes
 
         dd('Import Done');
     }
