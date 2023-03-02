@@ -107,6 +107,7 @@ class RegisterController extends Controller
         $course = Course::query()->where('code', 'regular')->first();
         $amount = $course->amount;
 
+        $have_discount = false;
         if ($student->customPrice){
 
             if (!empty($student->customPrice->discount_value)){
@@ -115,6 +116,7 @@ class RegisterController extends Controller
                 $amount = $amount - ( $amount * ($student->customPrice->discount_percent/100) );
             }
 
+            $have_discount = true;
         }
 
         if (isset($request->hidden_apply_coupon) && !empty($request->hidden_apply_coupon)){
@@ -155,6 +157,7 @@ class RegisterController extends Controller
                 'discount_value' => $discount ?? 0.00,
                 'coupon_code' => $coupon->code ?? null,
                 'favorite_time' => $request->favorite_time ?? null,
+                'custom_price_id' => $have_discount ? $student->customPrice->id : null,
                 'discount_reason_image' => $request->hasFile('discount_reason_image') ? $request->file('discount_reason_image')->store('public/discount_reason_image') : null,
             ]);
 
