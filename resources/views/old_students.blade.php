@@ -623,7 +623,7 @@
 
                             <div>
                                 <div class="form-check text-right">
-                                    <input class="form-check-input w-auto" type="radio" name="payment_method" id="checkout_gateway" value="checkout_gateway">
+                                    <input class="form-check-input w-auto" type="radio" name="payment_method" data-course-amount="{{ $course->price }}" id="checkout_gateway" value="checkout_gateway">
                                     <label class="form-check-label mr-4" for="checkout_gateway">
                                         {!! __('resubscribe.Payment via credit card') !!}
                                         <span id="amount">{{ $course->price }}</span>$
@@ -839,6 +839,17 @@
                     $('form #std-name').val(data.name);
                     $('form #amount').html(data.amount);
 
+                    $('#checkout_gateway').attr('data-course-amount', data.amount);
+
+                    $('#checkout_gateway').prop('checked', false);
+
+                    if(data.amount != 0){
+                        $('.card-frame').removeClass('d-none');
+                        $('#pay-button').removeClass('d-none');
+                        $('#pay-button-full-free').addClass('d-none');
+                        $('#pay-button-full-free').attr('disabled', true);
+                    }
+
                     if(data.discount_reason){
                         $('form #discount-reason').html('سبب الخصم/ ' + data.discount_reason);
                     }else{
@@ -874,6 +885,21 @@
             if($('#agree-terms').is(':checked')){
                 $("#payment-form").removeClass('d-none');
                 $("#submit-main-form").addClass('d-none');
+
+                let amount = $('#checkout_gateway').attr('data-course-amount');
+
+                if(amount == 0){
+                    $('.card-frame').addClass('d-none');
+                    $('#pay-button').addClass('d-none');
+                    $('#pay-button-full-free').removeClass('d-none');
+                    $('#pay-button-full-free').attr('disabled', false);
+                }else{
+                    $('.card-frame').removeClass('d-none');
+                    $('#pay-button').removeClass('d-none');
+                    $('#pay-button-full-free').addClass('d-none');
+                    $('#pay-button-full-free').attr('disabled', true);
+                }
+
             }else{
                 e.preventDefault();
                 alert('{{ __('You must agree that the previous information is correct') }}');
