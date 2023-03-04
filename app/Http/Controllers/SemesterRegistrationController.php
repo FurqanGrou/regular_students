@@ -71,9 +71,11 @@ class SemesterRegistrationController extends Controller
                             $coupon->use($subscribe->student_id);
                         }
 
-                        $subscribe->student->customPrice->update([
-                            'status' => '0',
-                        ]);
+                        if ($subscribe->student->customPrice){
+                            $subscribe->student->customPrice->update([
+                                'status' => '0',
+                            ]);
+                        }
 
                         session()->flash('success', __('resubscribe.The registration process has been completed successfully'));
                     }else{
