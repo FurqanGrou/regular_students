@@ -39,8 +39,17 @@ class Subscribe extends Model
             $created_at_formatted = Carbon::parse($subscribe->created_at)->timezone('Asia/Riyadh')->format('Y-m-d');
 
             $course = Course::query()->where('code', '=', 'regular')->first();
-            $price = $course->price - ($subscribe->discount_value / 100);
-            $net_price = $course->price - ($subscribe->discount_value / 100) - 15;
+
+            if (@$subscribe->customPrice->discount_value){
+                $discount_value = ($subscribe->discount_value/100) + $subscribe->customPrice->discount_value;
+            }elseif (@$subscribe->customPrice->discount_percent){
+                $discount_value = ($subscribe->discount_value/100) + ($course->price* ($subscribe->customPrice->discount_percent/100) );
+            }else{
+                $discount_value = ($subscribe->discount_value/100);
+            }
+
+            $price = $course->price - $discount_value;
+            $net_price = $course->price - $discount_value - 15;
 
             $image_path = '-';
 
@@ -80,8 +89,17 @@ class Subscribe extends Model
                 $created_at_formatted = Carbon::parse($subscribe->created_at)->timezone('Asia/Riyadh')->format('Y-m-d');
 
                 $course = Course::query()->where('code', '=', 'regular')->first();
-                $price = $course->price - ($subscribe->discount_value / 100);
-                $net_price = $course->price - ($subscribe->discount_value / 100) - 15;
+
+                if (@$subscribe->customPrice->discount_value){
+                    $discount_value = ($subscribe->discount_value/100) + $subscribe->customPrice->discount_value;
+                }elseif (@$subscribe->customPrice->discount_percent){
+                    $discount_value = ($subscribe->discount_value/100) + ($course->price* ($subscribe->customPrice->discount_percent/100) );
+                }else{
+                    $discount_value = ($subscribe->discount_value/100);
+                }
+
+                $price = $course->price - $discount_value;
+                $net_price = $course->price - $discount_value - 15;
 
                 $image_path = '-';
 
