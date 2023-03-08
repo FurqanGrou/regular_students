@@ -22,23 +22,20 @@ class StudentImport implements ToModel, WithHeadingRow, WithChunkReading, WithBa
     {
 
         $serial_number = trim($row['alrkm_altslsly']);
-        $name    = trim($row['alasm']);
-        $status  = trim($row['odaa_altalb']);
-        $path    = trim($row['almsar']);
         $client_zoho_id   = trim($row['rkm_zoho']);
 
-        if(!is_null($serial_number) && !is_null($name) && !is_null($status) && !is_null($path)){
+        if(!empty($serial_number) && !empty($client_zoho_id)){
 
-            Student::query()->updateOrCreate([
-                'serial_number' => $serial_number,
-                'section' => $this->section,
-            ],
-                [
-                    'name'    => $name,
-                    'status'  => $status == 'منتظم' ? '1' : '0',
-                    'path'    => $path,
+            $student = Student::query()->where([
+                    ['serial_number', '=', $serial_number],
+                    ['section', '=', $this->section],
+                ])->first();
+
+            if ($student){
+                $student->update([
                     'client_zoho_id' => $client_zoho_id,
                 ]);
+            }
 
         }
     }
