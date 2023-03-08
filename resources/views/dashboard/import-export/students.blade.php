@@ -13,7 +13,7 @@
         <div class="form-body">
             <h4 class="form-section">
                 <i class="ft-user"></i>
-                تحديث بيانات الطلاب
+                تحديث ارقام Zoho الطلاب
             </h4>
             <div class="row">
 
