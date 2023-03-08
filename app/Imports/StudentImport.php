@@ -10,33 +10,36 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class StudentImport implements ToModel, WithHeadingRow, WithChunkReading, WithBatchInserts
 {
-    /**
-     * @param array $row
-     *
-     * @return \Illuminate\Database\Eloquent\Model|null
-     */
+
+    public $section;
+
+    public function __construct($section)
+    {
+        $this->section = $section;
+    }
+
     public function model(array $row)
     {
-        $serial_number = trim($row['serial_number']);
-        $name = trim($row['display_name']);
-        $section = trim($row['section']);
-        $zoho_id = trim($row['contact_id']);
 
-        if (!empty($serial_number) && !empty($name) && !empty($zoho_id)) {
+        $serial_number = trim($row['alrkm_altslsly']);
+        $name    = trim($row['alasm']);
+        $status  = trim($row['odaa_altalb']);
+        $path    = trim($row['almsar']);
+        $client_zoho_id   = trim($row['rkm_zoho']);
 
-            if ($section == 'بنين') {
-                $custom_section = '1';
-            }else{
-                $custom_section = '2';
-            }
+        if(!is_null($serial_number) && !is_null($name) && !is_null($status) && !is_null($path)){
 
             Student::query()->updateOrCreate([
                 'serial_number' => $serial_number,
-                'section' => $custom_section,
-            ], [
-                'name' => $name,
-                'client_zoho_id' => $zoho_id,
-            ]);
+                'section' => $this->section,
+            ],
+                [
+                    'name'    => $name,
+                    'status'  => $status == 'منتظم' ? '1' : '0',
+                    'path'    => $path,
+                    'client_zoho_id' => $client_zoho_id,
+                ]);
+
         }
     }
 

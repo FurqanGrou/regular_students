@@ -68,10 +68,12 @@ class Subscribe extends Model
                     $image_path ?? '-', $subscribe->bank_name ?? '-', $subscribe->account_owner ?? '-',
                     $subscribe->transfer_date ?? '-', $subscribe->bank_reference_number ?? '-', $subscribe->payment_method ?? '-',
                     $subscribe->payment_id ?? '-', $subscribe->payment_status ?? '-', $subscribe->response_code ?? '-', $subscribe->coupon_code ?? '-', ($subscribe->discount_value / 100) ?? '0.0',
-                    $subscribe->student->client_zoho_id ?? '-', $price, $net_price, $subscribe->favorite_time ?? '-',
+                    $subscribe->student->client_zoho_id ?? '-', $course->price, $price, $net_price,
 
                     $subscribe->customPrice->discount_value ?? '-', $subscribe->customPrice->discount_percent ?? '-',
                     $subscribe->customPrice->discount_reason ?? '-', $discount_reason_image ?? '-',
+                    $subscribe->favorite_time ?? '-',
+
                 ],
             ];
 
@@ -118,10 +120,12 @@ class Subscribe extends Model
                         $image_path, $subscribe->bank_name ?? '-', $subscribe->account_owner ?? '-',
                         $subscribe->transfer_date ?? '-', $subscribe->bank_reference_number ?? '-', $subscribe->payment_method ?? '-',
                         $subscribe->payment_id ?? '-', $subscribe->payment_status ?? '-', $subscribe->response_code ?? '-', $subscribe->coupon_code ?? '-', ($subscribe->discount_value / 100) ?? '0.0',
-                        $subscribe->student->client_zoho_id ?? '-', $price, $net_price, $subscribe->favorite_time ?? '-',
+                        $subscribe->student->client_zoho_id ?? '-', $course->price, $price, $net_price,
 
                         $subscribe->customPrice->discount_value ?? '-', $subscribe->customPrice->discount_percent ?? '-',
                         $subscribe->customPrice->discount_reason ?? '-', $discount_reason_image ?? '-',
+                        $subscribe->favorite_time ?? '-',
+
                     ],
                 ];
 
