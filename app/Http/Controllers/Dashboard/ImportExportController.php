@@ -20,11 +20,15 @@ class ImportExportController extends Controller
 
     public function importStudents(Request $request)
     {
+        $request->validate([
+            'section' => 'required|in:1,2'
+        ]);
+        
         if (is_null($request->file_path)){
             return back()->withError('يجب عليك إرفاق الملف المطلوب');
         }
 
-        Excel::import(new StudentImport(), $request->file_path);
+        Excel::import(new StudentImport($request->section), $request->file_path);
 
         return back()->withSuccess('تم تحديث بيانات الطلاب بنجاح');
     }
