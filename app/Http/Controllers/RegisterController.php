@@ -124,9 +124,8 @@ class RegisterController extends Controller
             $coupon = Coupon::where('code', $coupon_code)->where('course_id', $course->id)->first();
 
             if (@$coupon->is_valid){
-                $discount    = $coupon->getDiscount($course->amount);
-                $base_amount = $course->amount;
-                $amount = ($base_amount - $discount);
+                $discount    = $coupon->getDiscount($amount);
+                $amount = ($amount - $discount);
             }
         }
 
