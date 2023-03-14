@@ -133,7 +133,7 @@ class RegisterController extends Controller
 
             $customer = ['email' => $request->email, 'name' => $request->student_name];
 
-            if ($amount != 0){
+            if ($amount > 0){
 
                 $request->validate([
                     'token_pay' => 'required|string',
@@ -164,7 +164,7 @@ class RegisterController extends Controller
             Session::forget('payment_status');
             Session::forget('reference_number');
 
-            if ($amount != 0){
+            if ($amount > 0){
                 $redirection = $result->getRedirection();
                 if ($redirection){
                     return Redirect::to($redirection);

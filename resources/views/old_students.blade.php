@@ -807,7 +807,7 @@
                 dataType: "json",
                 url: '{{ route('apply.coupon') }}?std_number=' + $('form #std-number').val() + '&std_section=' + $('form #std-section').val() + '&code=' + $('form #apply_coupon').val(),
                 success: function (data) {
-                    if(data.price_after_discount == 0){
+                    if(data.price_after_discount <= 0){
                         $('.card-frame').addClass('d-none');
                         $('#pay-button').addClass('d-none');
                         $('#pay-button-full-free').removeClass('d-none');
@@ -888,7 +888,7 @@
 
                 let amount = $('#checkout_gateway').attr('data-course-amount');
 
-                if(amount == 0){
+                if(amount <= 0){
                     $('.card-frame').addClass('d-none');
                     $('#pay-button').addClass('d-none');
                     $('#pay-button-full-free').removeClass('d-none');
